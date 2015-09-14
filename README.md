@@ -1,3 +1,3 @@
 # AshInventory
 
-Hi, my name is Chloe Maame Pokuaa Acheampong
+Hi everyone, This is Jessica Ali

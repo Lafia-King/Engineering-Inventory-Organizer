@@ -1,0 +1,1 @@
+This is a file for practical 2. Just trying my hands on how to use git shell to add files without manually creating them. The command is 'git touch'. Cool huh!?LOL. Anyway, all done now. I am exiting the VM now

@@ -22,21 +22,22 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 			global $con;
 		}
 
+
+
+
+
+
 //____Book an item_____//
 		function reserve_an_item(){
 			global $con;
-			$query="select Product_ID,Product_Name,Product_Description,Quantity, Price from product_table";
 			
-			return $this->query($query);
 		}
 
 
 //______Alert function_____//
 		function alert_an_item(){
 			global $con;
-			$query="select Product_ID,Product_Name,Product_Description,Quantity, Price from product_table";
 			
-			return $this->query($query);
 		}
 
 
@@ -52,11 +53,56 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		$manufacturer_id=$row_tools['manufacturer_id'];
 		$tool_name=$row_tools['name'];
 		$date_created=$row_tools['date_created'];
-		echo "<li><a href='#'>$tool_name</a></li>";
+		echo"<tr><td>";
+		echo "$tool_name</td><td><a href='book_tool.php?tool_id=$tool_id'>Book Tool</a></td>";
+		echo"</tr>";
+		echo "<br>";
 		}
 		}
 
 
+
+
+
+
+
+//__________User books item____//
+//________Method needs to be modified so it takes into perspective login session_________///
+
+		
+		function book_tool(){
+			global $con;
+			if(isset($_GET['tool_id'])){
+		
+		$tool_id=$_GET['tool_id'];
+		
+		}
+
+        //SQL query that checks if the tool_id already exists in the bookings
+        //If it doesn't allow you to book item has been booked already
+		$get_bookings="select * from booking where tool_id=$tool_id";
+	
+		$run_check=mysqli_query($con,$get_bookings);
+
+
+		if(mysqli_num_rows($run_check)>0){
+		
+		echo"";
+		}
+		
+		else{
+
+			
+		$insert_booking="insert into booking (id,tool_id,user_id,date_booked) values ('',$tool_id,'',now())";
+		$run_pro = mysqli_query($con,$insert_booking);
+		
+		echo "<script>window.open('bookings.php','_self')</script>";
+		echo "<script>alert('You have registered tool')</script>";
+		}
+
+
+
+		}
 
 
 

@@ -107,6 +107,29 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 
 
+		//The admin's view of all the bookings that have been made//
+		function view_bookings(){
+			global $con;
+			$query="select tool.tool_id as toolid,tool.name as toolname,user.name as username,tool.tool_id as toolid,manufacturer_id,date_booked from booking,tool,user where tool.tool_id=booking.tool_id and user.id=booking.user_id ";
+			$get_bookings= mysqli_query($con,$query);
+
+			while($row_tools=mysqli_fetch_array($get_bookings)){
+		$tool_id=$row_tools['toolid'];
+		$manufacturer_id=$row_tools['manufacturer_id'];
+		$tool_name=$row_tools['toolname'];
+		$date_booked=$row_tools['date_booked'];
+		$user_name=$row_tools['username'];
+		echo"<tr><td>";
+		echo "$tool_name</td><td><a href='book_tool.php?tool_id=$tool_id'>Approve Check Out</a></td>";
+		echo"</tr>";
+		echo "<br>";
+		}
+
+		}
+
+
+
+
 
 
 

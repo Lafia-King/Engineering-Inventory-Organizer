@@ -18,7 +18,7 @@ include_once("..\Model\db.php");
 
 
 		<?php list_tools(); 
-			
+			book_tool();
 		?>
 
 	</body>

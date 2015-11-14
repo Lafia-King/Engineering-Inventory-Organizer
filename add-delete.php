@@ -1,11 +1,12 @@
-	function add_items(){
+	function add_tool(){
 		if (isset($_REQUEST['item-code'])) {
-		$item_no=$_REQUEST['item-code'];
-		$barcode=$_REQUEST['bar-code'];
-		$name=$_REQUEST['item-nm'];
-		$manufacturer=$_REQUEST['manu-nm'];
+		$tool_id=$_REQUEST['tool_id'];
+		$barcode=$_REQUEST['barcode'];
+		$name=$_REQUEST['tool_name'];
+		$manufacturer=$_REQUEST['manufacturer-name'];
+		$supplier=$_REQUEST['supplier_name'];
 		$price=$_REQUEST['price'];
-		$date_bought= date('Y-m-d', strtotime($_REQUEST['date-bought']));
+		$date_purchased= date('Y-m-d', strtotime($_REQUEST['date-bought']));
 		$repair_date= date('Y-m-d', strtotime($_REQUEST['repair-date']));
 		$condition=$_REQUEST['condition'];
 		$location=$_REQUEST['location'];
@@ -13,9 +14,9 @@
 
 
 		$querry="INSERT INTO `items` (`item_number`, `barcode_number`, 
-			`item_name`, `manufacturer`, `price`, `date_bought`, `last_repair_date`,
+			`item_name`, `manufacturer`, `supplier_name`, `price`, `date_bought`, `last_repair_date`,
 			 `conditions`, `location`, `department`) 
-			VALUES ('$item_no', '$barcode', '$name', '$manufacturer', '$price', '$date_bought', 
+			VALUES ('$item_no', '$barcode', '$name', '$manufacturer', `supplier_name`, '$price', '$date_bought', 
 			'$repair_date', '$condition', '$location', '$department');";
 		
 

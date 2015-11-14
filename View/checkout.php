@@ -10,7 +10,11 @@ include_once("..\Model\db.php");
 
 	<head></head>
 
+<<<<<<< HEAD
 	<title>Checkout Page</title>
+=======
+	<title>Checkout PAge</title>
+>>>>>>> bookings
 
 	<body>
 		

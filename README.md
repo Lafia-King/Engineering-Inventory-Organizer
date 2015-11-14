@@ -7,7 +7,7 @@ The funtionalities with the highest priority that this project seeks to achieve 
 
 1. Enable login for admin/user
 
-2. Add a tool to the database
+2. Add a tool to the database: This function allows our user(administrator) to add new tools to the inventory manager. A form containing certain parameters as tool_id, tool_name, description, purchase date, supplier details, manufacturer details,lab(which lab it would be available in) is provided and the administrator fills them in and clicks the submit button to add to the database
 
 3. Search for a tool
 
@@ -15,7 +15,8 @@ The funtionalities with the highest priority that this project seeks to achieve 
 
 5. Edit tool information
 
-6. Delete a tool
+6. Delete a tool:This functions allows the administrator to remove a tool that no longer exist in the database or is sent out for repairs. There is a button that when pressed, goes into the database to find the id of the item that has been clicked on and removes it from the database.
+
 
 By the end of this project, there should be an easier way for the engineering department to keep inventory of lab equipment.
 

@@ -2,7 +2,7 @@
 
 ABOUT
 
-The engineering department of Ashesi University college officially began a few months ago. Considering the importance of the laboratories, we thought a great Software Engineering project would be to develop a web based application to make it easy to check in tools and checkout tools to students and faculty. Currently, our main user is th elab technician or administrator who is in charge of monitoring the system and updating it with the functionalities of the system.
+The engineering department of Ashesi University college officially began a few months ago. Considering the importance of the laboratories, we thought a great Software Engineering project would be to develop a web based application to make it easy to check in tools and checkout tools to students and faculty. Currently, our main user is the lab technician or administrator who is in charge of monitoring the system and updating it with the functionalities of the system.
 The funtionalities with the highest priority that this project seeks to achieve are:
 
 1. Enable login for admin/user

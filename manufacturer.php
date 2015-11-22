@@ -17,7 +17,7 @@
 
 
 		/**
-		*query to add a record to family planning records 
+		*query to get manufactures
 		*@return  all manufacturers in the database
 		*/
 		function getAllManufacturers(){

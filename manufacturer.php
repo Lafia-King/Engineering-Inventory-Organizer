@@ -6,7 +6,9 @@
 			dbconnection::dbconnection();
 		}
 		
-		function get_all_manufacturer(){
+		function get_all_manufacturers(){
+			$query="select * from manufacturer";
+			return $this->query($query);
 		}
 		
 		function add_manufacturer(){

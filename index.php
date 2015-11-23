@@ -45,6 +45,8 @@
     <div class="jumbotron">
       <div class="container">
 			<p></p>
-        
+			<?php
+			include_once("display_equipment.php");
+			?>
       </div>
     </div>

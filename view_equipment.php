@@ -1,9 +1,9 @@
 <!-- @Author: Phoebe Priscilla Amoako -->
-<!-- @Date: 14th November, 2015 -->
+<!-- @Date: 22nd November, 2015 -->
 
 <html>
 <head>
-<link rel="stylesheet" type="css" href="inventory_style.css">
+<link rel="stylesheet" type="css" href="css/bootstrap.css">
 </head> 
 <h1><span>Engineering Lab Inventory</span></h1>
 <body>

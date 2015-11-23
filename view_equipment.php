@@ -12,5 +12,9 @@
 		function getEquipment(){
 			return $this->query("select * from equipment");
 		}
+		// get a single equipment in the database
+		function getSingleEquipment($id){
+			return $this->query("select * from equipment where id=$id");
+		}
 	}
 	?>

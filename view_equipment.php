@@ -8,5 +8,9 @@
 		function view_equipment(){
 			adb::adb();
 		}
+		// get all equipment in the database
+		function getEquipment(){
+			return $this->query("select * from equipment");
+		}
 	}
 	?>

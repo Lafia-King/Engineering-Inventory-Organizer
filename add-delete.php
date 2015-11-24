@@ -13,7 +13,7 @@
 		$department=$_REQUEST['department'];
 
 
-		$querry="INSERT INTO `items` (`item_number`, `barcode_number`, 
+		$querry="UPDATE `items` (`item_number`, `barcode_number`, 
 			`item_name`, `manufacturer`, `supplier_name`, `price`, `date_bought`, `last_repair_date`,
 			 `conditions`, `location`, `department`) 
 			VALUES ('$item_no', '$barcode', '$name', '$manufacturer', `supplier_name`, '$price', '$date_bought', 

@@ -1,9 +1,7 @@
 <?php
 
-/**
- * author: Phoebe Priscilla Amoako 
- * date: 22nd November 2015
- * description: A root class for all manage classes. This class communicates with DB
+/** @author Unknown
+ *@author Unknown (unknown)
  */
 
 define("DB_HOST", 'localhost');
@@ -17,9 +15,15 @@ define("LOG_LEVEL_DB_FAIL",0);
 
 define("PAGE_SIZE",10);
 
-//function log_msg($level, $er_code, $msg, $mysql_msg){
-//	return 0;
-//}
+	/**
+	 *@method void adb()
+	 *@method int log_error($level, $code, $msg, $mysql_msg = "NONE")
+	 *@method boolean connect()
+	 *@method array fetch()
+	 *@method boolean query($str_sql)
+	 *@method int get_num_rows()
+	 *@method int get_insert_id()
+	 */
 
 class adb {
 
@@ -34,6 +38,9 @@ class adb {
     /* query result resource*/
     var $result;
 
+	/**
+	 *@return void Returns the number of pregnant women who are anaemic 
+	 */
     function adb() {
        
         $this->er_code_prefix=1000;
@@ -42,7 +49,7 @@ class adb {
     }
 
     /**
-     * logs error into database using functions defined in log.php
+     *@return int Returns log errors if any
      */
     function log_error($level, $code, $msg, $mysql_msg = "NONE") {
         $er_code = $this->er_code_prefix + $code;
@@ -59,7 +66,7 @@ class adb {
     }
 
     /**
-	* creates connection to database
+	*return void Creates connection to database
 	*/
     function connect() {
 
@@ -88,14 +95,14 @@ class adb {
 
         
 	/**
-	*returns a row from a data set
+	*@return array Return a row from a dataset
 	*/
     function fetch() {
         return mysql_fetch_assoc($this->result);
     }
 
     /**
-	* connect to db and run a query 
+	*@return boolean Connect to db and run a query 
 	*/
     function query($str_sql) {
 		
@@ -113,13 +120,13 @@ class adb {
     }
 	
 	/**
-	* returns number of rows in current dataset
+	*@return int Returns number of rows in current dataset
 	*/
     function get_num_rows() {
         return mysql_num_rows($this->result);
     }
 	/**
-	*returns last auto generated id 
+	*@return int Returns last auto generated id 
 	*/
     function get_insert_id() {
         return mysql_insert_id($this->link);

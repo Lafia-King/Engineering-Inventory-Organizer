@@ -47,6 +47,9 @@
       <div class="container">
 			<p></p>
         <?php
+		/**
+		*Include the view_equipment class and use an instance of it to display equipment information
+		*/
 		include_once("view_equipment.php");
 			$newView = new view_equipment();
 			$newView->getSingleEquipment($_REQUEST['id']);		

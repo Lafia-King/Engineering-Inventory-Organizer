@@ -1,18 +1,29 @@
-<!-- @Author: Phoebe Priscilla Amoako -->
-<!-- @Date: 22nd November, 2015 -->
-
 <?php
+
+	/** @author Phoebe Priscilla Amoako
+	 *@author Phoebe Priscilla Amoako (phoebe.amoako@ashesi.edu.gh)
+	 */
 	include_once("adb.php");
 	
 	class view_equipment extends adb{
 		function view_equipment(){
 			adb::adb();
 		}
-		// get all equipment in the database
+		
+	/**
+	 *@method array getEquipment()
+	 *@method array getSingleEquipment($id)
+	 */
+		
+		/**
+		 *@return list Returns all equipment from database
+		 */
 		function getEquipment(){
 			return $this->query("select * from equipment");
 		}
-		// get a single equipment in the database
+		/**
+		 *@return list Returns single equipment from database
+		 */
 		function getSingleEquipment($id){
 			return $this->query("select * from equipment where id=$id");
 		}

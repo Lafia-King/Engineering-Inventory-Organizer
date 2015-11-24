@@ -13,9 +13,11 @@ include_once("..\Model\db.php");
 <<<<<<< HEAD
 	<title>Checkout Page</title>
 =======
-	<title>Checkout PAge</title>
+	
 >>>>>>> bookings
 
+<!-- If the admin wants to checkout an item for a user he comes to this page.
+On this page he sees the list of all bookings-->
 	<body>
 		
 

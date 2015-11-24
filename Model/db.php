@@ -2,11 +2,14 @@
 <?php
 //InventoryDb class
 /**
- * author: Kwadwo Busumtwi
+ * @author Kwadwo Busumtwi
+ * @author Kwadwo Busumtwi <kwadwo.busumtwi@ashesi.edu.gh>
  * date:13/11/2015
  * description: A root class for all manage classes. This class communicates with DB
  *
  */
+
+
 
 $con=mysqli_connect("localhost","root","","inventorydb");
 

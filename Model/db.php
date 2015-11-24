@@ -45,11 +45,32 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		function list_tools(){
 			global $con;
 
-			$query="select * from Tool";
+			$query="select * from equipment";
 			$get_tools= mysqli_query($con,$query);
 
 			while($row_tools=mysqli_fetch_array($get_tools)){
-		$tool_id=$row_tools['tool_id'];
+		$tool_id=$row_tools['id'];
+		$manufacturer_id=$row_tools['manufacturer_id'];
+		$tool_name=$row_tools['name'];
+		$date_created=$row_tools['date_created'];
+		echo"<tr><td>";
+		echo "$tool_name</td><td><a href='book_tool.php?tool_id=$tool_id'>Book Tool</a></td>";
+		echo"</tr>";
+		echo "<br>";
+		}
+		}
+
+
+
+		//_______List of items____//
+		function list_borrowed_equipment(){
+			global $con;
+
+			$query="select * from equipment where borrow_status = 'Borrowed'";
+			$get_tools= mysqli_query($con,$query);
+
+			while($row_tools=mysqli_fetch_array($get_tools)){
+		$tool_id=$row_tools['id'];
 		$manufacturer_id=$row_tools['manufacturer_id'];
 		$tool_name=$row_tools['name'];
 		$date_created=$row_tools['date_created'];
@@ -127,6 +148,9 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 		}
 
+
+//id of the person ,
+// return date , 
 
 
 

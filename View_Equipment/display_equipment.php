@@ -4,14 +4,16 @@
 </head> 
 <body>
 <?php
-
+		/**
+		*Include the view_equipment class and use an instance of it to display equipment information
+		*/
 	include_once("view_equipment.php");
 	
 		$newView = new view_equipment();
 		$newView->getEquipment();		
 		$row = $newView->fetch();
 		
-				echo ("<table class='table table-condensed table-hover table-bordered'>");
+			echo ("<table class='table table-condensed table-hover table-bordered'>");
 			echo("<tr><th>Name</th>
 				  <th>Equipment ID</th>
 				  <th>Category ID</th>

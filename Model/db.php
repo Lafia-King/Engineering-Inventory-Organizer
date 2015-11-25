@@ -11,6 +11,10 @@
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bookings
 $con=mysqli_connect("localhost","root","","inventorydb");
 
 //____Check_In_____//
@@ -48,11 +52,32 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		function list_tools(){
 			global $con;
 
-			$query="select * from Tool";
+			$query="select * from equipment";
 			$get_tools= mysqli_query($con,$query);
 
 			while($row_tools=mysqli_fetch_array($get_tools)){
-		$tool_id=$row_tools['tool_id'];
+		$tool_id=$row_tools['id'];
+		$manufacturer_id=$row_tools['manufacturer_id'];
+		$tool_name=$row_tools['name'];
+		$date_created=$row_tools['date_created'];
+		echo"<tr><td>";
+		echo "$tool_name</td><td><a href='book_tool.php?tool_id=$tool_id'>Book Tool</a></td>";
+		echo"</tr>";
+		echo "<br>";
+		}
+		}
+
+
+
+		//_______List of items____//
+		function list_borrowed_equipment(){
+			global $con;
+
+			$query="select * from equipment where borrow_status = 'Borrowed'";
+			$get_tools= mysqli_query($con,$query);
+
+			while($row_tools=mysqli_fetch_array($get_tools)){
+		$tool_id=$row_tools['id'];
 		$manufacturer_id=$row_tools['manufacturer_id'];
 		$tool_name=$row_tools['name'];
 		$date_created=$row_tools['date_created'];
@@ -98,9 +123,10 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 			
 		$insert_booking="insert into booking (id,tool_id,user_id,date_booked) values ('',$tool_id,'',now())";
 		$run_pro = mysqli_query($con,$insert_booking);
-		
-		echo "<script>window.open('bookings.php','_self')</script>";
+
 		echo "<script>alert('You have registered tool')</script>";
+		echo "<script>window.open('bookings.php','_self')</script>";
+		
 		}
 
 
@@ -113,7 +139,7 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		//The admin's view of all the bookings that have been made//
 		function view_bookings(){
 			global $con;
-			$query="select tool.tool_id as toolid,tool.name as toolname,user.name as username,tool.tool_id as toolid,manufacturer_id,date_booked from booking,tool,user where tool.tool_id=booking.tool_id and user.id=booking.user_id ";
+			$query="select tool_id ,equipment.name as toolname,user.name as username,equipment_id ,manufacturer_id,date_booked from booking,equipment,user where equipment_id=tool_id and user.id=booking.user_id ";
 			$get_bookings= mysqli_query($con,$query);
 
 			while($row_tools=mysqli_fetch_array($get_bookings)){
@@ -123,13 +149,16 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		$date_booked=$row_tools['date_booked'];
 		$user_name=$row_tools['username'];
 		echo"<tr><td>";
-		echo "$tool_name</td><td><a href='book_tool.php?tool_id=$tool_id'>Approve Check Out</a></td>";
+		echo "$tool_name</td><td><a href='checkout_tool.php?tool_id=$tool_id'>Check Out for student</a></td>";
 		echo"</tr>";
 		echo "<br>";
 		}
 
 		}
 
+
+//id of the person ,
+// return date , 
 
 
 

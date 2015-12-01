@@ -17,7 +17,7 @@
     if (!$link) {
         echo "Failed to connect to mysql.";
         //display error message from mysql 
-        echo mysql_error();
+        echo mysqli_error();
         exit();  //end script 
     }
 //select the database to work with using the open connection  
@@ -39,28 +39,60 @@
         
         
         
-        $run_pro=mysqli_query($con,$get_pro);
+        $run_pro=mysql_query($get_pro,$link);
         
-        while($row_pro=mysqli_fetch_array($run_pro)){
-        $product_id=$row_pro['product_id'];
-        $product_cat=$row_pro['product_cat'];
-        $product_brand=$row_pro['product_brand'];
-        $product_name=$row_pro['product_name'];
-        $product_price=$row_pro['product_price'];
-        $product_image=$row_pro['product_image'];
-        $product_desc=$row_pro['product_desc'];
+        while($row_pro=mysql_fetch_array($run_pro)){
+        $e_id1=$row_pro['id'];
+         $e_id=$row_pro['equipment_id'];
+        $e_name=$row_pro['name'];
+        $category=$row_pro['category_id'];
+        $storage_location=$row_pro['storage_location'];
+        $supplier_id=$row_pro['supplier_id'];
+        $manufacturer_id=$row_pro['manufacturer_id'];
+        $product_id=$row_pro['current_condition'];
+
+        $current_condition=$row_pro['product_id'];
+          $label=$row_pro['label'];
         
-        echo "<div id='single_product'><h3>$product_name</h3><a href='product_details.php?product_id=$product_id'><img src='$product_image' width='300' height='300'/></a>
-        
-        <p><b>$$product_price</b></p>
-        <p><b>$product_desc</b></p>
-        <a href='shop.php?cart=$product_id&brand=$product_brand'><button ='right' >Add to Cart</button></a>
-        
-        <a href='shop.php?product_id=$product_id'><button float='left' >Go Back</button></a>
-        
-        </div>
-        
-        ";
+        echo ("<tr><td>");
+        echo $e_id1;
+        echo ("</td>");
+        echo ("<td>");
+        echo $e_id;
+        echo ("</td>");
+        echo ("<td>");
+        echo $e_name;
+        echo ("</td>");
+        echo ("<td>");
+        echo $category;
+        echo ("</td>");
+        echo ("<td>");
+        echo $storage_location;
+        echo ("</td>");
+        echo ("<td>");
+        echo $supplier_id;
+        echo ("</td>");
+        echo ("<td>");
+        echo $manufacturer_id;
+        echo ("</td>");
+        echo ("<td>");
+        echo $product_id;
+        echo ("</td>");
+       echo ("<td>");
+     echo $current_condition;
+      echo ("</td>");
+
+      echo ("<td>");
+     echo $label;
+      echo ("</td>");
+        echo ("<td>");
+        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
+        echo ("</td>");
+  
+        echo ("</tr>");
+       
+  
+    echo ("</table>");
         
         }
 

@@ -54,6 +54,7 @@
 
     $row = mysql_fetch_assoc($dataset);
     while ($row) {
+        $id= $row["id"];
         echo ("<tr><td>");
         echo $row["id"];
         echo ("</td>");
@@ -85,7 +86,8 @@
         echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
         echo ("</td>");
          echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</button>");
+        echo ("<a href='view_equipment.php?id=$id'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</button></a>
+            ");
         echo ("</td>");
         echo ("</tr>");
         $row = mysql_fetch_assoc($dataset);

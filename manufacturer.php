@@ -44,8 +44,21 @@
 			
 		}
 		
-
-		function update_manufacturer()
+		/**
+		*query to update a manufacturer in the database
+		* 
+		*@param string $name
+		*@param string $email
+		*@param string $phone_number
+		*@param string $website
+		*@param string $country
+		*@return  true or false - successful or unsuccessful
+		*/
+		function updateManufacturer($name, $email, $phone_number, $website, $country){
+			$query ="update manufacturer set email=$email,
+			phone_number=$phone_number, website=$website, 
+			country=$country where name=$name";
+			return $this->query($query);
 		}
 
 		

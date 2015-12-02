@@ -4,7 +4,7 @@
 
     <?php
     include("header.html");
-    echo("<div><h1 style='color:#5f6468;'><b>Equipment</b></h1>"
+    echo("<div><h1 style='color:#5f6468;'><b>Edit Equipment Details</b></h1>"
 //    . "<em>the first priority information</em>"
     . "<hr></div>");
 
@@ -51,6 +51,7 @@
 
     $run_pro = mysql_query($get_pro, $link);
 
+//  query and populate
     while ($row_pro = mysql_fetch_array($run_pro)) {
         $e_id1 = $row_pro['id'];
         $e_id = $row_pro['equipment_id'];
@@ -59,110 +60,90 @@
         $storage_location = $row_pro['storage_location'];
         $supplier_id = $row_pro['supplier_id'];
         $manufacturer_id = $row_pro['manufacturer_id'];
-        $product_id = $row_pro['current_condition'];
-        $current_condition = $row_pro['product_id'];
+        $product_id = $row_pro['product_id'];
+        $current_condition = $row_pro['current_condition'];
         $label = $row_pro['label'];
-
- echo " <html>
-
-		<head>
-		<title>Product Insertion </title>
-		<script src='//tinymce.cachefly.net/4.1/tinymce.min.js'></script>
-        <script>tinymce.init({selector:'textarea'});</script>
-		</head>
-
-		<body bgcolor='#819FF7'>
-
-		<form action='insert_product.php' method='post' enctype='multipart/form-data'>
-
-		<table align='center' width='700' border='2' bgcolor='#BCA9F5'>
-		<tr align='center'>
-		<td colspan='7'><h2>New Products</h2></td>
-
-		</tr>
+        $date = $row_pro['date_created'];
+        $asset_type = $row_pro['asset_type'];
+        $borrow_status = $row_pro['borrow_status'];
         
-        <!--This is the Id for the equipment -->
-		<tr>
-		<td align='right'>ID</td>
-		<td><input type='text' name='product_name'  /></td>
-		</tr>
-			
-			<!--This is the name of the equipment -->
-		<tr>
-		<td align='right'>Name</td>
-		<td><input type='text' name='product_name' /></td>
 
-		<!--This is the equipment id  -->
-		<tr>
-		<td align='right'>Equipment ID</td>
-		<td><input type='text' name='product_name' /></td>
-
-
-		<!--This is the category id  -->
-		<tr>
-		<td align='right'>Category Id</td>
-		<td><input type='text' name='product_name' /></td>
-
-		<!--This is the storage location -->
-		<tr>
-		<td align='right'>Storage Location</td>
-		<td><input type='text' name='product_name' /></td>
-
-
-		<!--This is  the supplier id -->
-		<tr>
-		<td align='right'>Supplier ID</td>
-		<td><input type='text' name='product_name' /></td>
-
-		<!--This is the manufacturer id -->
-		<tr>
-		<td align='right'>Manufacturer ID</td>
-		<td><input type='text' name='product_name' /></td>
-
-		<!--This is the product_id -->
-		<tr>
-		<td align='right'>Product ID</td>
-		<td><input type='text' name='product_name' /></td>
-
-
-		<!--This is the current condition of the equipment -->
-		<tr>
-		<td align='right'>Current Condition</td>
-		<td><input type='text' name='product_name' /></td>
-
-		<!--This is the label -->
-		<tr>
-		<td align='right'>Label</td>
-		<td><input type='text' name='product_name' /></td>
-
-		<!--This is the Asset Type of the equipment -->
-		<tr>
-		<td align='right'>Asset Type</td>
-		<td><input type='text' name='product_name' /></td>
-
-		<!--This is the Borrow Status of equpment -->
-		<tr>
-		<td align='right'>Asset Type</td>
-		<td><input type='text' name='product_name' /></td>
-
-		<!--This is the when the  equpment was created -->
-		<tr>
-		<td align='right'>Asset Type</td>
-		<td><input type='text' name='product_name' /></td>
-
-
-
-		</tr>
-
-		
-
-		</table>
-		</form>
-
-		</body>
-		</html>
-		";
-	}
+        echo("<html>
+                <body>
+                    <form role='form' class='horizontal'>
+                        <div class='col-xs-2'>
+                            <label for='email'>Id</label>
+                            <input type='id' class='form-control' value=$e_id1 disabled>
+                        </div>
+                        
+                        <div class='col-xs-6'>
+                            <label for='email'>Name</label>
+                            <input type='text' class='form-control' value=$e_name>
+                        </div>
+                        
+                        <div class='col-xs-4'>
+                            <label for='email'>Equipment Id</label>
+                            <input type='id' class='form-control' value=$e_id>
+                        </div>
+                        <br/><br/><br/><br/>
+                        <div class='col-xs-2'>
+                            <label for='email'>Category Id</label>
+                            <input type='id' class='form-control' value=$category>
+                        </div>
+                        
+                        <div class='col-xs-6'>
+                            <label for='email'>Storage Location</label>
+                            <input type='id' class='form-control' value=$storage_location>
+                        </div>
+                        
+                        <div class='col-xs-4'>
+                            <label for='email'>Supplier Id</label>
+                            <input type='id' class='form-control' value=$supplier_id>
+                        </div>
+                        <br/><br/><br/><br/>
+                        <div class='col-xs-2'>
+                            <label for='email'>Manufacturer Id</label>
+                            <input type='id' class='form-control' value=$manufacturer_id>
+                        </div>
+                        
+                        <div class='col-xs-6'>
+                            <label for='email'>Label</label>
+                            <input type='id' class='form-control' value=$label>
+                        </div>
+                        
+                         <div class='col-xs-4'>
+                            <label for='email'>Current Condition</label>
+                            <input type='id' class='form-control' value=$current_condition>
+                        </div>
+                        <br/><br/><br/><br/>
+                        <div class='col-xs-2'>
+                            <label for='email'>Product Id</label>
+                            <input type='id' class='form-control' value=$product_id>
+                        </div>
+                        
+                        <div class='col-xs-6'>
+                            <label for='email'>Asset Type</label>
+                            <input type='id' class='form-control' value=$asset_type>
+                        </div>
+                        
+                        <div class='col-xs-2'>
+                            <label for='email'>Borrow Status</label>
+                            <input type='id' class='form-control' value=$borrow_status>
+                        </div>
+                        
+                        <div class='col-xs-2'>
+                            <label for='email'>Date</label>
+                            <input type='date' class='form-control' value=$date>
+                        </div>
+                        <br/><br/><br/><br/>
+                        <div class='col-xs-2'>
+                        <button type='submit' class='btn btn-default'>Submit</button>
+                        </div>
+                    </form>
+                </body>
+            </html>
+            ");
+    }
 
 
     mysql_close($link);
@@ -170,4 +151,4 @@
     include("footer.html");
     ?> 
 
-    </html>
+</html>

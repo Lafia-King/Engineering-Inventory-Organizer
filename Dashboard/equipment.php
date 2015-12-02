@@ -50,7 +50,7 @@
                   <th>Label</th>
                   <th>Asset Type</th>
  		  <th>Borrow Status</th>
-                  <th><button type='button' class='btn btn-success btn-sm' style='width:100%;'>Add</button></th>
+                  <th><button type='button' class='btn btn-success btn-sm' style='width:100%;'data-toggle='modal' data-target='#myModal'>Add</button></th>
                   </tr> ");
 
     $row = mysql_fetch_assoc($dataset);
@@ -105,6 +105,100 @@
     include("footer.html");
     ?> 
 
-
+        Modal 
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+    
+                 Modal content
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add New Equipment</h4>
+                    </div>
+                    <div class="modal-body">
+    
+                        <form role='form' class='horizontal'>
+                        <div class='col-xs-2'>
+                            <label for='email'>Id</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        
+                        <div class='col-xs-6'>
+                            <label for='email'>Name</label>
+                            <input type='text' class='form-control'>
+                        </div>
+                        
+                        <div class='col-xs-4'>
+                            <label for='email'>Equipment Id</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        <br/><br/><br/><br/>
+                        <div class='col-xs-2'>
+                            <label for='email'>Category Id</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        
+                        <div class='col-xs-6'>
+                            <label for='email'>Storage Location</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        
+                        <div class='col-xs-4'>
+                            <label for='email'>Supplier Id</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        <br/><br/><br/><br/>
+                        <div class='col-xs-2'>
+                            <label for='email'>Manufacturer Id</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        
+                        <div class='col-xs-6'>
+                            <label for='email'>Label</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        
+                         <div class='col-xs-4'>
+                            <label for='email'>Current Condition</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        <br/><br/><br/><br/>
+                        <div class='col-xs-2'>
+                            <label for='email'>Product Id</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        
+                        <div class='col-xs-6'>
+                            <label for='email'>Asset Type</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        
+                        <div class='col-xs-2'>
+                            <label for='email'>Borrow Status</label>
+                            <input type='id' class='form-control'>
+                        </div>
+                        
+                        <div class='col-xs-2'>
+                            <label for='email'>Date</label>
+                            <input type='date' class='form-control'>
+                        </div>
+                        <br/><br/>
+                        <!--<div class='col-xs-2'>
+                        <button type='submit' class='btn btn-default'>Submit</button>
+                        </div>-->
+                    </form>
+    
+                    </div><!--                        <br/><br/><br/><br/>
+                        <div class='col-xs-2'>
+                        <button type='submit' class='btn btn-default'>Submit</button>
+                        </div>-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type='submit' class='btn btn-default'>Submit</button>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
 
 </html>

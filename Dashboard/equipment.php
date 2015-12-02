@@ -89,11 +89,11 @@
 //        echo ("</td>");
 
         echo ("<td>");
-        echo ("<a style='color:white; text-decoration:none' href='view_equipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</button></a>");
+        echo ("<a style='color:white; text-decoration:none' href='view_equipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button></a>");
         echo ("</td>");
 
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
+        echo ("<a style='color:white; text-decoration:none' href='edit_equipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</button></a>");
         echo ("</td>");
         echo ("</tr>");
         $row = mysql_fetch_assoc($dataset);

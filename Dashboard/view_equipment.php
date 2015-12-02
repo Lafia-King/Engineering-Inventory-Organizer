@@ -29,75 +29,75 @@
     }
 
 
-    if(isset($_GET['id'])){
-        
-        $equipment_id=$_GET['id'];
-        
-        }
-        
-        $get_pro="select * from equipment where equipment_id=$equipment_id";
-        
-        
-        
-        $run_pro=mysql_query($get_pro,$link);
-        
-        while($row_pro=mysql_fetch_array($run_pro)){
-        $e_id1=$row_pro['id'];
-         $e_id=$row_pro['equipment_id'];
-        $e_name=$row_pro['name'];
-        $category=$row_pro['category_id'];
-        $storage_location=$row_pro['storage_location'];
-        $supplier_id=$row_pro['supplier_id'];
-        $manufacturer_id=$row_pro['manufacturer_id'];
-        $product_id=$row_pro['current_condition'];
+    if (isset($_GET['id'])) {
 
-        $current_condition=$row_pro['product_id'];
-          $label=$row_pro['label'];
+        $equipment_id = $_GET['id'];
+    }
+
+    $get_pro = "select * from equipment where id=$equipment_id";
+
+
+
+    $run_pro = mysql_query($get_pro, $link);
+
+    while ($row_pro = mysql_fetch_array($run_pro)) {
+        $e_id1 = $row_pro['id'];
+        $e_id = $row_pro['equipment_id'];
+        $e_name = $row_pro['name'];
+        $category = $row_pro['category_id'];
+        $storage_location = $row_pro['storage_location'];
+        $supplier_id = $row_pro['supplier_id'];
+        $manufacturer_id = $row_pro['manufacturer_id'];
+        $product_id = $row_pro['current_condition'];
+        $current_condition = $row_pro['product_id'];
+        $label = $row_pro['label'];
         
-        echo ("<tr><td>");
+        
+        
+        
+
+//        echo("<table>");
+//        echo ("<tr><td>");
         echo $e_id1;
-        echo ("</td>");
-        echo ("<td>");
+//        echo ("</td>");
+//        echo ("<td>");
         echo $e_id;
-        echo ("</td>");
-        echo ("<td>");
+//        echo ("</td>");
+//        echo ("<td>");
         echo $e_name;
-        echo ("</td>");
-        echo ("<td>");
+//        echo ("</td>");
+//        echo ("<td>");
         echo $category;
-        echo ("</td>");
-        echo ("<td>");
+//        echo ("</td>");
+//        echo ("<td>");
         echo $storage_location;
-        echo ("</td>");
-        echo ("<td>");
+//        echo ("</td>");
+//        echo ("<td>");
         echo $supplier_id;
-        echo ("</td>");
-        echo ("<td>");
+//        echo ("</td>");
+//        echo ("<td>");
         echo $manufacturer_id;
-        echo ("</td>");
-        echo ("<td>");
+//        echo ("</td>");
+//        echo ("<td>");
         echo $product_id;
-        echo ("</td>");
-       echo ("<td>");
-     echo $current_condition;
-      echo ("</td>");
-
-      echo ("<td>");
-     echo $label;
-      echo ("</td>");
-        echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
-        echo ("</td>");
-  
-        echo ("</tr>");
-       
-  
-    echo ("</table>");
-        
-        }
-
-   
+//        echo ("</td>");
+//       echo ("<td>");
+        echo $current_condition;
+//      echo ("</td>");
+//
+//      echo ("<td>");
+        echo $label;
+//      echo ("</td>");
+        //echo ("<td>");
+        //echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
+        // echo ("</td>");
+//        echo ("</tr>");
+//    echo ("</table>");
+    }
 
     mysql_close($link);
+
     include("footer.html");
     ?> 
+
+</html>

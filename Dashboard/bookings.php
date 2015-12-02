@@ -1,7 +1,7 @@
 <html>
     <?php
     include("header.html");
-    echo("<div><h1 style='color:#5f6468;'><b>Equipment</b></h1>"
+    echo("<div><h1 style='color:#5f6468;'><b>Bookings</b></h1>"
 //    . "<em>the first priority information</em>"
     . "<hr></div>");
 
@@ -30,7 +30,7 @@
 
 
     //begin running query for equipment info from inventorydb  for requests table
-    $dataset = mysql_query("select * from equipment", $link);
+    $dataset = mysql_query("select * from booking", $link);
     if (!$dataset) {
         echo "Error";
         echo mysql_error();
@@ -43,57 +43,39 @@
 
     echo ("<table class='table table-condensed table-hover'>");
     echo("<tr><th>ID</th> 
- 		  <th>Name</th> 
- 		  <th>Equipment Id</th> 
-                  <th>Location</th>
- 		  <th>Condition</th>
-                  <th>Label</th>
-                  <th>Asset Type</th>
- 		  <th>Borrow Status</th>
+ 		  <th>Tool Id</th> 
+                  <th>User Id</th>
+ 		  <th>Date Booked</th> 
                   <th><button type='button' class='btn btn-success btn-sm' style='width:100%;'>Add</button></th>
                   </tr> ");
 
     $row = mysql_fetch_assoc($dataset);
     while ($row) {
-        $id = $row["id"];
         echo ("<tr><td>");
         echo $row["id"];
         echo ("</td>");
         echo ("<td>");
-        echo $row["name"];
+        echo $row["tool_id"];
         echo ("</td>");
         echo ("<td>");
-        echo $row["equipment_id"];
+        echo $row["user_id"];
         echo ("</td>");
         echo ("<td>");
-        echo $row["storage_location"];
+        echo $row["date_booked"];
         echo ("</td>");
-        echo ("<td>");
-        echo $row["current_condition"];
-        echo ("</td>");
-        echo ("<td>");
-        echo $row["label"];
-        echo ("</td>");
-        echo ("<td>");
-        echo $row["asset_type"];
-        echo ("</td>");
-        echo ("<td>");
-        echo $row["borrow_status"];
-        echo ("</td>");
+
+
 //        echo ("<td>");
 //        echo $row["date_created"];
 //        echo ("</td>");
 //        echo ("<td>");
-//        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'"
-//        . "data-toggle='modal' data-target='#myModal'>View</button>");
+//        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
 //        echo ("</td>");
-
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'><a style='color:white; text-decoration:none' href='view_equipment.php?id={$row['id']}'>Edit</a></button>");
+        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-in</button>");
         echo ("</td>");
-
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
+        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button>");
         echo ("</td>");
         echo ("</tr>");
         $row = mysql_fetch_assoc($dataset);
@@ -101,10 +83,5 @@
     echo ("</table>");
 
     mysql_close($link);
-
     include("footer.html");
     ?> 
-
-
-
-</html>

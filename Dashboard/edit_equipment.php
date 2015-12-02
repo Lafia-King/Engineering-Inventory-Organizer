@@ -40,6 +40,29 @@
         exit();
     }
 
+    if (isset($_GET['id'])) {
+
+        $equipment_id = $_GET['id'];
+    }
+
+    $get_pro = "select * from equipment where id=$equipment_id";
+
+
+
+    $run_pro = mysql_query($get_pro, $link);
+
+    while ($row_pro = mysql_fetch_array($run_pro)) {
+        $e_id1 = $row_pro['id'];
+        $e_id = $row_pro['equipment_id'];
+        $e_name = $row_pro['name'];
+        $category = $row_pro['category_id'];
+        $storage_location = $row_pro['storage_location'];
+        $supplier_id = $row_pro['supplier_id'];
+        $manufacturer_id = $row_pro['manufacturer_id'];
+        $product_id = $row_pro['current_condition'];
+        $current_condition = $row_pro['product_id'];
+        $label = $row_pro['label'];
+
  echo " <html>
 
 		<head>
@@ -57,56 +80,81 @@
 		<td colspan='7'><h2>New Products</h2></td>
 
 		</tr>
-
+        
+        <!--This is the Id for the equipment -->
 		<tr>
-		<td align='right'>Product Name</td>
-		<td><input type='text' name='product_name' size='60' required/></td>
+		<td align='right'>ID</td>
+		<td><input type='text' name='product_name'  /></td>
 		</tr>
-
+			
+			<!--This is the name of the equipment -->
 		<tr>
-		<td align='right'>Product Category</td>
-		<td><select  name='product_cat' />
-		<option>Select a Category</option>
-		<?php include('cat.php');
-		insert_cat();
-		?>
-		</select></td>
-		</tr>
+		<td align='right'>Name</td>
+		<td><input type='text' name='product_name' /></td>
 
+		<!--This is the equipment id  -->
 		<tr>
-		<td align='right'>Product Brand</td>
-		<td><select name='product_brand' required/>
-		<option>Select a Brand</option>
-		<?php 
-		insert_brand();
-		?>
-		</select></td>
-		</tr>
+		<td align='right'>Equipment ID</td>
+		<td><input type='text' name='product_name' /></td>
 
+
+		<!--This is the category id  -->
 		<tr>
-		<td align='right'>Product Image</td>
-		<td><input type='file' name='product_image' required/></td>
-		</tr>
+		<td align='right'>Category Id</td>
+		<td><input type='text' name='product_name' /></td>
 
+		<!--This is the storage location -->
 		<tr>
-		<td align='right'>Product Price</td>
-		<td><input type='text' name='product_price'/ required/></td>
-		</tr>
+		<td align='right'>Storage Location</td>
+		<td><input type='text' name='product_name' /></td>
 
+
+		<!--This is  the supplier id -->
 		<tr>
-		<td align='right'>Product Description</td>
-		<td><textarea name='product_desc' cols='22' rows='10'></textarea></td>
-		</tr>
+		<td align='right'>Supplier ID</td>
+		<td><input type='text' name='product_name' /></td>
 
+		<!--This is the manufacturer id -->
 		<tr>
-		<td align='right'>Product Keywords</td>
-		<td><input type='text' name='product_keyword'/ required/></td>
+		<td align='right'>Manufacturer ID</td>
+		<td><input type='text' name='product_name' /></td>
+
+		<!--This is the product_id -->
+		<tr>
+		<td align='right'>Product ID</td>
+		<td><input type='text' name='product_name' /></td>
+
+
+		<!--This is the current condition of the equipment -->
+		<tr>
+		<td align='right'>Current Condition</td>
+		<td><input type='text' name='product_name' /></td>
+
+		<!--This is the label -->
+		<tr>
+		<td align='right'>Label</td>
+		<td><input type='text' name='product_name' /></td>
+
+		<!--This is the Asset Type of the equipment -->
+		<tr>
+		<td align='right'>Asset Type</td>
+		<td><input type='text' name='product_name' /></td>
+
+		<!--This is the Borrow Status of equpment -->
+		<tr>
+		<td align='right'>Asset Type</td>
+		<td><input type='text' name='product_name' /></td>
+
+		<!--This is the when the  equpment was created -->
+		<tr>
+		<td align='right'>Asset Type</td>
+		<td><input type='text' name='product_name' /></td>
+
+
+
 		</tr>
 
-		<tr align='center'>
-
-		<td colspan='8'><input type='submit' name='insert_post' value='Insert Now'/></td>
-		</tr>
+		
 
 		</table>
 		</form>
@@ -114,6 +162,7 @@
 		</body>
 		</html>
 		";
+	}
 
 
     mysql_close($link);

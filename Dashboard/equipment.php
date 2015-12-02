@@ -89,7 +89,7 @@
 //        echo ("</td>");
 
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'><a style='color:white; text-decoration:none' href='view_equipment.php?id={$row['id']}'>Edit</a></button>");
+        echo ("<a style='color:white; text-decoration:none' href='view_equipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</button></a>");
         echo ("</td>");
 
         echo ("<td>");

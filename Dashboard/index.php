@@ -9,7 +9,7 @@
     . "<em>the first priority information</em>"
     . "<hr></div>");
 
-	include ("viewEquipment.php");
+	include ("displayEquipment.php");
     
     include("footer.html");
     ?> 

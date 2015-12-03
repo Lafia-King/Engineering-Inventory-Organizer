@@ -5,7 +5,7 @@
 	 */
 	 
 		include("header.html");
-		echo("<div><h1 style='color:#5f6468;'><b>DASHBOARD</b></h1>"
+		echo("<div><h1 style='color:#5f6468;'><b>Equipment</b></h1>"
 		. "<hr></div>");
 		
 			include_once("viewEquipment.php");

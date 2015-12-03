@@ -4,11 +4,6 @@
 	 *@author Phoebe Priscilla Amoako (phoebe.amoako@ashesi.edu.gh)
 	 */
 	 
-		include("header.html");
-		echo("<div><h1 style='color:#5f6468;'><b>DASHBOARD</b></h1>"
-		. "<em>the first priority information</em>"
-		. "<hr></div>");
-		
 		include_once("viewEquipment.php");
 		
 		$view = new viewEquipment();
@@ -51,8 +46,8 @@
     }
     echo ("</table>");
     
-    
-		$view -> getEquipment();		
+		$view -> getEquipment();
+		//$view -> getDueEquipment();		
 		$row = $view->fetch();
 
     echo("<div>
@@ -91,7 +86,8 @@
     }
     echo ("</table>");
 
-	$view -> getEquipment();		
+		$view -> getEquipment();
+	//$view -> getOverDueEquipment();		
 	$row = $view->fetch();
 
     echo("<div>
@@ -129,8 +125,9 @@
         $row = $view->fetch();
     }
     echo ("</table>");
-
-	$view -> getEquipment();		
+	
+	$view -> getEquipment();
+	//$view -> getBrokenEquipment();		
 	$row = $view->fetch();
 	
     echo("<div>
@@ -168,6 +165,4 @@
         $row = $view->fetch();
     }
     echo ("</table>");
-		
-		include("footer.html");
     ?> 

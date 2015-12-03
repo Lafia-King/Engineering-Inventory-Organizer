@@ -6,7 +6,6 @@
 	 
 		include("header.html");
 		echo("<div><h1 style='color:#5f6468;'><b>DASHBOARD</b></h1>"
-		. "<em>the first priority information</em>"
 		. "<hr></div>");
 		
 			include_once("viewEquipment.php");
@@ -29,57 +28,57 @@
 		$borrow_status= $row["borrow_status"];
 		$date_created= $row["date_created"];
 		
-		echo ("<table>
+		echo ("<table class='table table-condensed table-hover table-bordered'>
 					<tr>
-						<td>ID:</td>
+						<th>ID:</th>
 						<td>$id</td>
 					</tr>
 					<tr>
-						<td>Name:</td>
+						<th>Name:</th>
 						<td>$name</td>
 					</tr>
 					<tr>
-						<td>Equipment ID:</td>
+						<th>Equipment ID:</th>
 						<td>$equipment_id</td>
 					</tr>
 					<tr>
-						<td>Category ID:</td>
+						<th>Category ID:</th>
 						<td>$category_id</td>
 					</tr>
 					<tr>
-						<td>Storage Location:</td>
+						<th>Storage Location:</th>
 						<td>$storage_location</td>
 					</tr>
 					<tr>
-						<td>Supplier ID:</td>
+						<th>Supplier ID:</th>
 						<td>$supplier_id</td>
 					</tr>
 					<tr>
-						<td>Manufacturer ID:</td>
+						<th>Manufacturer ID:</th>
 						<td>$manufacturer_id</td>
 					</tr>
 					<tr>
-						<td>Product ID:</td>
+						<th>Product ID:</th>
 						<td>$product_id</td>
 					</tr>
 					<tr>
-						<td>Current Condition:</td>
+						<th>Current Condition:</th>
 						<td>$current_condition</td>
 					</tr>
 					<tr>
-						<td>Label:</td>
+						<th>Label:</th>
 						<td>$label</td>
 					</tr>
 					<tr>
-						<td>Asset Type:</td>
+						<th>Asset Type:</th>
 						<td>$asset_type</td>
 					</tr>
 					<tr>
-						<td>Borrow Status:</td>
+						<th>Borrow Status:</th>
 						<td>$borrow_status</td>
 					</tr>
 					<tr>
-						<td>Date Created:</td>
+						<th>Date Created:</th>
 						<td>$date_created</td>
 					</tr>					
 			</table>");

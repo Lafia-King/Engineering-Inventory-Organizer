@@ -29,7 +29,60 @@
 		$borrow_status= $row["borrow_status"];
 		$date_created= $row["date_created"];
 		
-		
+		echo ("<table>
+					<tr>
+						<td>ID:</td>
+						<td>$id</td>
+					</tr>
+					<tr>
+						<td>Name:</td>
+						<td>$name</td>
+					</tr>
+					<tr>
+						<td>Equipment ID:</td>
+						<td>$equipment_id</td>
+					</tr>
+					<tr>
+						<td>Category ID:</td>
+						<td>$category_id</td>
+					</tr>
+					<tr>
+						<td>Storage Location:</td>
+						<td>$storage_location</td>
+					</tr>
+					<tr>
+						<td>Supplier ID:</td>
+						<td>$supplier_id</td>
+					</tr>
+					<tr>
+						<td>Manufacturer ID:</td>
+						<td>$manufacturer_id</td>
+					</tr>
+					<tr>
+						<td>Product ID:</td>
+						<td>$product_id</td>
+					</tr>
+					<tr>
+						<td>Current Condition:</td>
+						<td>$current_condition</td>
+					</tr>
+					<tr>
+						<td>Label:</td>
+						<td>$label</td>
+					</tr>
+					<tr>
+						<td>Asset Type:</td>
+						<td>$asset_type</td>
+					</tr>
+					<tr>
+						<td>Borrow Status:</td>
+						<td>$borrow_status</td>
+					</tr>
+					<tr>
+						<td>Date Created:</td>
+						<td>$date_created</td>
+					</tr>					
+			</table>");
 		
 		include("footer.html");
     ?> 

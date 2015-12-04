@@ -1,6 +1,7 @@
 <html>
     <?php
     include("header.html");
+
     echo("<div><h1 style='color:#5f6468;'><b>Bookings</b></h1>"
 //    . "<em>the first priority information</em>"
     . "<hr></div>");
@@ -46,7 +47,8 @@
  		  <th>Tool Id</th> 
                   <th>User Id</th>
  		  <th>Date Booked</th> 
-                  <th><button type='button' class='btn btn-success btn-sm' style='width:100%;'>Add</button></th>
+                  <th></th>
+                   <th></th>
                   </tr> ");
 
     $row = mysql_fetch_assoc($dataset);

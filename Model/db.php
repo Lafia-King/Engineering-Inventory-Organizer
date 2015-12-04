@@ -11,10 +11,8 @@
 
 
 
-<<< 
-=======
+ 
 
->>>>>>> bookings
 $con=mysqli_connect("localhost","root","","inventorydb");
 
 //____Check_In_____//
@@ -143,7 +141,7 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 			$get_bookings= mysqli_query($con,$query);
 
 			while($row_tools=mysqli_fetch_array($get_bookings)){
-		$tool_id=$row_tools['toolid'];
+		$tool_id=$row_tools['tool_id'];
 		$manufacturer_id=$row_tools['manufacturer_id'];
 		$tool_name=$row_tools['toolname'];
 		$date_booked=$row_tools['date_booked'];

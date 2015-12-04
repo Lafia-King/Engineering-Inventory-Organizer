@@ -74,7 +74,7 @@
 //        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
 //        echo ("</td>");
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-in</button>");
+        
         echo ("</td>");
         echo ("<td>");
         echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button>");

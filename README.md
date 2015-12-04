@@ -11,7 +11,7 @@ The funtionalities with the highest priority that this project seeks to achieve 
 
 3. Search for a tool
 
-4. View a tool and its details
+4. View tool(s): This feature enables you to view all tools or a single tool from the database. Ideally, it is supposed to be the home view a user sees after successfully logging in to the application.
 
 5. Edit tool information
 

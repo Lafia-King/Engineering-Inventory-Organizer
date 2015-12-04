@@ -77,7 +77,7 @@
         
         echo ("</td>");
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button>");
+        echo ("<a style='color:white; text-decoration:none' href='check_out_equipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button></a>");
         echo ("</td>");
         echo ("</tr>");
         $row = mysql_fetch_assoc($dataset);

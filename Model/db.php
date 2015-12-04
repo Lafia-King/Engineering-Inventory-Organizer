@@ -23,8 +23,45 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 
 		//____Check_out_____//
+			
 		function check_out(){
-			global $con;
+		if (isset($_GET['equipment_id'])){
+		global $con;
+		$e_id=$_GET['equipment_id'];
+		$user_id=$_GET['id'];
+		$date_booked=$_GET['date_booked'];
+		$date_returned=$_GET['date_returned'];
+
+		
+		$check_borrowed_equipment="select user_id,equipment_id from borrowed_equipment,user,equipment  where equipment_id=$e_id and user.id=$user_id ";
+
+		
+		$run_check=mysqli_query($con,$check_borrowed_equipment);
+	
+
+        
+
+     
+		// $product_brand=$row_pro['product_brand'];
+		
+		if(mysqli_num_rows($run_check)>0){
+		
+		echo"";
+		}
+		
+		else{
+          
+			
+		$insert_borrowed_equipment="insert into borrowed_equipment (equipment_id,user_id,date_borrowed,return_date) values ('$e_id,$user_id','$date_booked','$date_returned')";
+		$run_pro = mysqli_query($con,$insert_borrowed_equipment);
+		
+		echo "<script>window.open('bookings.php','_self')</script>";
+		echo "<script>alert('You have checked out this equipment for this student')</script>";
+		}
+		
+		}
+		
+		
 		}
 
 

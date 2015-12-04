@@ -13,10 +13,6 @@
 	/**
 	 *@method array getEquipment()
 	 *@method array getSingleEquipment($id)
-	 *@method array getBorrowedEquipment()
-	 *@method array getOverdueEquipment()
-	 *@method array getDueEquipment()
-	 *@method array getBrokenEquipment()
 	 */
 		
 		/**
@@ -35,29 +31,29 @@
 		/**
 		 *@return list Returns all borrowed equipment from database
 		 */
-		function getBorrowedEquipment(){
+		/* function getBorrowedEquipment(){
 			return $this->query("select * from equipment where borrow_status = 'Borrowed'");
 		}
-		
+		 */
 		/**
 		 *@return list Returns all overdue equipment from database
 		 */
-		function getOverdueEquipment(){
+		/* function getOverdueEquipment(){
 			return $this->query("select * from equipment where dateReturn < cast((now()) as date)");
-		}	
+		}	 */
 		
 		/**
 		 *@return list Returns all equipment due today from database
 		 */
-		function getDueEquipment(){
+		/* function getDueEquipment(){
 			return $this->query("select * from equipment where dateReturn=cast(now() as date");
-		}
+		} */
 		
 		/**
 		 *@return list Returns all broken equipment from database
 		 */
-		function getBrokenEquipment(){
+		/* function getBrokenEquipment(){
 			return $this->query("select * from equipment where state='bad'");
-		}
+		} */
 	}
 	?>

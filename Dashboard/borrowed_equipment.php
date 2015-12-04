@@ -1,8 +1,11 @@
 <html>
     <?php
     include("header.html");
+    //Added my database with my booking, check-in, check-out methods
 
-    echo("<div><h1 style='color:#5f6468;'><b>Bookings</b></h1>"
+    include_once("..\Model\db.php");
+
+    echo("<div><h1 style='color:#5f6468;'><b>Borrowed Equipment</b></h1>"
 //    . "<em>the first priority information</em>"
     . "<hr></div>");
 
@@ -28,6 +31,8 @@
         echo mysql_error();
         exit();
     }
+
+list_borrowed_equipment();
 
 
 

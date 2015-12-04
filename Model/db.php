@@ -74,11 +74,26 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 			$query="select * from equipment where borrow_status = 'Borrowed'";
 			$get_tools= mysqli_query($con,$query);
 
+			echo("<div>
+        <h2 class='sub-header'>Requests</h2>
+        </div>");
+
+    echo ("<table class='table table-condensed table-hover'>");
+    echo("<tr><th>ID</th> 
+ 		  <th>Tool Id</th> 
+                  <th>User Id</th>
+ 		  <th>Date Booked</th> 
+                  <th></th>
+                   <th></th>
+                  </tr> ");
+
 			while($row_tools=mysqli_fetch_array($get_tools)){
 		$tool_id=$row_tools['id'];
 		$manufacturer_id=$row_tools['manufacturer_id'];
 		$tool_name=$row_tools['name'];
 		$date_created=$row_tools['date_created'];
+
+
 		echo"<tr><td>";
 		echo "$tool_name</td><td><a href='book_tool.php?tool_id=$tool_id'>Book Tool</a></td>";
 		echo"</tr>";

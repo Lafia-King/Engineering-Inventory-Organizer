@@ -1,4 +1,4 @@
-	function add_tool(){
+	function edit_tool_details(){
 	
 		$tool_id=$_REQUEST['tool_id'];
 		$barcode=$_REQUEST['barcode'];

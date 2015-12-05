@@ -24,22 +24,19 @@
         </div>");
 
     echo ("<table class='table table-condensed table-hover'>");
-    echo("<tr><th>ID</th> 
+    echo("<tr> 
  		  <th>Name</th> 
                   <th>Email</th>
  		          <th>Phone Number</th> 
                   <th>Website</th>
                   <th>Country</th>
-                  <th><button type='submit' value='add' name='submit' class='btn btn-success btn-sm' 
-                  style='width:100%;' data-toggle='modal' data-target ='#myModal'>Add</button></th>
+                  <th><a style='color:white; text-decoration:none' href='add_manufacturer.php'><button 
+                  type='button' class='btn btn-success btn-sm' style='width:100%;'>Add</button></a></th>
                   </tr> ");
 
     // $row = $dataset;
     while ($row) {
         echo ("<tr><td>");
-        echo $row["id"];
-        echo ("</td>");
-        echo ("<td>");
         echo $row["name"];
         echo ("</td>");
         echo ("<td>");
@@ -72,52 +69,6 @@
     include("footer.html");
     ?> 
 
-    <div id="myModal" class="modal fade" role ="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class= "modal-header">
-                        <button type="button" class="close" data-dismiss= "modal">&times;</button>
-                        <h4 class="modal-title">Add New Manufacturer</h4>
-                </div>
-                <div class="modal-body">
-                    <form role='form' class='horizontal' id ='myModal' action="manufacturer.php">
-
-                        <div class='col-xs-6'>
-                            <label for='email'>Name</label>
-                            <input type='text' class='form-control' name= "name">
-                        </div>
-                        
-                        <div class='col-xs-6'>
-                            <label for='email'>Email</label>
-                            <input type='text' class='form-control' name="email">
-                        </div>
-                        <br/><br/><br/><br/>
-                        <div class='col-xs-4'>
-                            <label for='email'>Phone Number</label>
-                            <input type='text' class='form-control' name="number">
-                        </div>
-                        
-                        <div class='col-xs-4'>
-                            <label for='email'>Website</label>
-                            <input type='text' class='form-control' name="website">
-                        </div>
-                        
-                        <div class='col-xs-4'>
-                            <label for='email'>Country</label>
-                            <input type='text' class='form-control' name='country'>
-                        </div>                        
-                        <br/><br/><br/><br/>
-
-                    </form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type='submit' class='btn btn-default'>Submit</button>
-                    </div>
-         </div>
-      </div>
-    </div>
 </body>
 
     </html>

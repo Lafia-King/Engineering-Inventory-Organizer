@@ -1,4 +1,11 @@
 <?php
+	
+/**
+ * @author Chloe Acheampong 
+ * @copyright 2015
+ */
+
+
 	include_once("dbconnection.php");
 	
 	  /**

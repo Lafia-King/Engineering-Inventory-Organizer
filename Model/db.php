@@ -5,28 +5,105 @@
  * @author Kwadwo Busumtwi
  * @author Kwadwo Busumtwi <kwadwo.busumtwi@ashesi.edu.gh>
  * date:13/11/2015
- * description: A root class for all manage classes. This class communicates with DB
+ * description: A root class for all inventory db classes. This class communicates with DB
  *
  */
 
 
 
-<<< 
-=======
+ 
 
->>>>>>> bookings
 $con=mysqli_connect("localhost","root","","inventorydb");
 
-//____Check_In_____//
+//____Method to check in items that are to be returned_____//
 		function check_in(){
 	global $con;
 		}
 
 
 
-		//____Check_out_____//
+		//____Method to check out items that have been booked by users_____//
+			
 		function check_out(){
-			global $con;
+		if (isset($_GET['equipment_id'])){
+		global $con;
+		$e_id=$_GET['equipment_id'];
+		$user_id=$_GET['id'];
+		$date_booked=$_GET['date_booked'];
+		$date_returned=$_GET['date_returned'];
+
+		
+		$check_borrowed_equipment="select * from borrowed_equipment where user_id=$user_id and equipment_id = $e_id ";
+
+		
+		$run_check=mysqli_query($con,$check_borrowed_equipment);
+
+     
+		// $product_brand=$row_pro['product_brand'];
+		
+		if(mysqli_num_rows($run_check)>0){
+		
+		echo"";
+		}
+		
+		else{
+          
+			
+		$insert_borrowed_equipment="insert into borrowed_equipment (equipment_id,user_id,date_borrowed,return_date) values ('$e_id','$user_id','$date_booked','$date_returned')";
+		$run_pro = mysqli_query($con,$insert_borrowed_equipment);
+		
+		echo "<script>window.open('check_out_equipment.php?id=$user_id','_self')</script>";
+		echo "<script>alert('You have checked out this equipment for this student')</script>";
+		}
+		
+		}
+		
+		
+		}
+
+
+
+		//___Method to remove bookings from the booking table___//
+
+
+		function remove_booking(){
+		if (isset($_GET['equipment_id'])){
+		global $con;
+		$e_id=$_GET['equipment_id'];
+		$user_id=$_GET['id'];
+		$date_booked=$_GET['date_booked'];
+		$date_returned=$_GET['date_returned'];
+
+		
+		$check_borrowed_equipment="select * from booking where user_id=$user_id and equipment_id = $e_id ";
+
+		
+		$run_check=mysqli_query($con,$check_borrowed_equipment);
+	
+
+        
+
+     
+		// $product_brand=$row_pro['product_brand'];
+		
+		if(mysqli_num_rows($run_check)>0){
+		
+		
+			$delete_booking="DELETE FROM booking WHERE user_id = $user_id and equipment_id = $e_id";
+		$run_pro = mysqli_query($con,$delete_booking);
+		
+		}
+		
+		else{
+          
+			echo"";
+	
+	
+		}
+		
+		}
+		
+		
 		}
 
 
@@ -73,20 +150,66 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		function list_borrowed_equipment(){
 			global $con;
 
-			$query="select * from equipment where borrow_status = 'Borrowed'";
+			$query="select equipment.name as e_name,user.name as username, date_borrowed,return_date from borrowed_equipment,equipment,user where equipment.equipment_id =borrowed_equipment.equipment_id and user.user_id = borrowed_equipment.user_id ";
 			$get_tools= mysqli_query($con,$query);
 
+			echo("<div>
+        <h2 class='sub-header'>Requests</h2>
+        </div>");
+
+    echo ("<table class='table table-condensed table-hover'>");
+    echo("<tr><th>ID</th> 
+ 		  <th>Tool Id</th> 
+                  <th>User Id</th>
+ 		  <th>Date Booked</th> 
+                  <th></th>
+                   <th></th>
+                  </tr> ");
+
+    if(mysqli_num_rows($get_tools)>0){
+
 			while($row_tools=mysqli_fetch_array($get_tools)){
-		$tool_id=$row_tools['id'];
-		$manufacturer_id=$row_tools['manufacturer_id'];
-		$tool_name=$row_tools['name'];
-		$date_created=$row_tools['date_created'];
-		echo"<tr><td>";
-		echo "$tool_name</td><td><a href='book_tool.php?tool_id=$tool_id'>Book Tool</a></td>";
-		echo"</tr>";
-		echo "<br>";
+		$tool_name=$row_tools['e_name'];
+		$user_name=$row_tools['username'];
+		$date_borrowed=$row_tools['date_borrowed'];
+		$return_date=$row_tools['return_date'];
+
+		echo "lasagna tastes great";
+
+
+	     echo ("<tr><td>");
+        echo $tool_name;
+        echo ("</td>");
+        echo ("<td>");
+        echo $user_name;
+        echo ("</td>");
+        echo ("<td>");
+        echo $date_borrowed;
+        echo ("</td>");
+        echo ("<td>");
+        echo $return_date;
+        echo ("</td>");
+
+
+        echo ("<td>");
+        
+        echo ("</td>");
+        echo ("<td>");
+        echo ("<a style='color:white; text-decoration:none' href='check_out_equipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button></a>");
+        echo ("</td>");
+        echo ("</tr>");
+
+
 		}
-		}
+
+	}
+
+	else{
+
+		echo " no items";
+	}
+		
+	}
 
 
 
@@ -143,7 +266,7 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 			$get_bookings= mysqli_query($con,$query);
 
 			while($row_tools=mysqli_fetch_array($get_bookings)){
-		$tool_id=$row_tools['toolid'];
+		$tool_id=$row_tools['tool_id'];
 		$manufacturer_id=$row_tools['manufacturer_id'];
 		$tool_name=$row_tools['toolname'];
 		$date_booked=$row_tools['date_booked'];

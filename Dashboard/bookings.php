@@ -1,6 +1,7 @@
 <html>
     <?php
     include("header.html");
+
     echo("<div><h1 style='color:#5f6468;'><b>Bookings</b></h1>"
 //    . "<em>the first priority information</em>"
     . "<hr></div>");
@@ -46,7 +47,8 @@
  		  <th>Tool Id</th> 
                   <th>User Id</th>
  		  <th>Date Booked</th> 
-                  <th><button type='button' class='btn btn-success btn-sm' style='width:100%;'>Add</button></th>
+                  <th></th>
+                   <th></th>
                   </tr> ");
 
     $row = mysql_fetch_assoc($dataset);
@@ -55,7 +57,7 @@
         echo $row["id"];
         echo ("</td>");
         echo ("<td>");
-        echo $row["tool_id"];
+        echo $row["equipment_id"];
         echo ("</td>");
         echo ("<td>");
         echo $row["user_id"];
@@ -72,10 +74,10 @@
 //        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
 //        echo ("</td>");
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-in</button>");
+        
         echo ("</td>");
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button>");
+        echo ("<a style='color:white; text-decoration:none' href='check_out_equipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button></a>");
         echo ("</td>");
         echo ("</tr>");
         $row = mysql_fetch_assoc($dataset);

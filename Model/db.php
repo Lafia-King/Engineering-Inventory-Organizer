@@ -5,7 +5,7 @@
  * @author Kwadwo Busumtwi
  * @author Kwadwo Busumtwi <kwadwo.busumtwi@ashesi.edu.gh>
  * date:13/11/2015
- * description: A root class for all manage classes. This class communicates with DB
+ * description: A root class for all inventory db classes. This class communicates with DB
  *
  */
 
@@ -15,14 +15,14 @@
 
 $con=mysqli_connect("localhost","root","","inventorydb");
 
-//____Check_In_____//
+//____Method to check in items that are to be returned_____//
 		function check_in(){
 	global $con;
 		}
 
 
 
-		//____Check_out_____//
+		//____Method to check out items that have been booked by users_____//
 			
 		function check_out(){
 		if (isset($_GET['equipment_id'])){
@@ -37,9 +37,6 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 		
 		$run_check=mysqli_query($con,$check_borrowed_equipment);
-	
-
-        
 
      
 		// $product_brand=$row_pro['product_brand'];
@@ -63,6 +60,10 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		
 		
 		}
+
+
+
+		//___Method to remove bookings from the booking table___//
 
 
 		function remove_booking(){

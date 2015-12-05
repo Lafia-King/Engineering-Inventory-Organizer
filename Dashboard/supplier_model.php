@@ -41,8 +41,6 @@
 		*@param string $name
 		*@param string $email
 		*@param string $phone_number
-		*@param string $website
-		*@param string $country
 		*@return  true or false - successful or unsuccessful
 		*/
 		function addSupplier($name, $email, $phone_number){
@@ -52,7 +50,20 @@
 			
 		}
 		
-		
+		/**
+		*query to update a Supplier in the database
+		* 
+		*@param string $name
+		*@param string $email
+		*@param string $phone_number
+		*@return  true or false - successful or unsuccessful
+		*/
+		function updateSupplier($id, $name, $email, $phone_number){
+			$query ="UPDATE Supplier SET name='$name',email='$email',phone_number='$phone_number'
+			 WHERE id=$id";
+			return $this->query($query);
+		}
+
 		
 	}
 

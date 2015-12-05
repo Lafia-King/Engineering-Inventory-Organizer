@@ -1,3 +1,4 @@
+	<?php
 	function edit_tool_details(){
 	
 		$tool_id=$_REQUEST['tool_id'];
@@ -12,13 +13,11 @@
 		$location=$_REQUEST['location'];
 		$department=$_REQUEST['department'];
 
-
-		$querry="UPDATE `items` 
-		SET`tool_id`, `barcode`, `item_name`, `manufacturer_name `supplier_name`, `price`, `date_bought`, `last_repair_date`,
+	$querry= "UPDATE equipment 
+		SET(`tool_id = $tool_id`, `barcode = $barcode`, `tool_name` = $tool_name, `manufacturer_name = $manufacturer_name', `supplier_name = $supplier_name`, `price = $price`, `date_bought`, `last_repair_date`,
 			 `condition`, `location`, `department`
-			WHERE tool_id=$tool_id
-		
+			WHERE tool_id=$tool_id);
+			
+			return $this->query($querry);
 
-		return $this->query($querry);
-
-	}
+	?>

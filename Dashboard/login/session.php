@@ -1,14 +1,13 @@
 <?php
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$connection = mysql_connect("localhost", "root", "");
-// Selecting Database
-$db = mysql_select_db("inventorydb", $connection);
+include_once( '../user.php');
 session_start();// Starting Session
 // Storing Session
 $user_check=$_SESSION['login_user'];
 // SQL Query To Fetch Complete Information Of User
-$ses_sql=mysql_query("select username from user where username='$user_check'", $connection);
-$row = mysql_fetch_assoc($ses_sql);
+$obj = new user();
+$obj->getUserByUsername($user_check);
+$row = $obj->fetch();
 $login_session =$row['username'];
 if(!isset($login_session)){
 mysql_close($connection); // Closing Connection

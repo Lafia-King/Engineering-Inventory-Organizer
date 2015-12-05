@@ -1,8 +1,13 @@
 <?php
+  /**
+ * @author Chloe Acheampong 
+ * @copyright 2015
+ */
+ 
   include('login.php'); // Includes Login page
 
   if(isset($_SESSION['login_user'])){
-    header("location: home.php");
+    header("location: ../index.php");
   }
 ?>
 
@@ -10,6 +15,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
+   
     <title>Invertory Keep login </title>
         <link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
 
@@ -19,8 +25,8 @@
 
   <body>
 
-    <div class="container">
-      <div class="row">
+    <div class="container"  id="main">
+      <div class="row" id="login">
         <h1 class="text-center">Inventory Management Login </h1>
         <div class="login-wrap">
           <form class="form-horizontal" role="form" method="post" action="">

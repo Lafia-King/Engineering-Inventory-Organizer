@@ -1,4 +1,8 @@
+<?php
+include('login/session.php');
+?>
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -46,8 +50,8 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Hello  <?php echo $_SESSION['login_user']; ?>!</a> </li>
+                        <li><a href="login/logout.php">Logout</a></li>                        
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Help</a></li>
                     </ul>

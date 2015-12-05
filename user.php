@@ -14,6 +14,15 @@
 			$query="select * from user";
 			return $this->query($query);
 		}
+		/**
+		*query all users in the table and store the dataset in $this->result	
+		*@return if successful true else false
+		*/
+		
+		function getUserByUsername($name){
+			$query="SELECT * from user where username = '$name'";
+			return $this->query($query);
+		}
 		
 		function add_user($name, $email, $username,$password){
 			//write the SQL query and call $this->query()
@@ -31,7 +40,8 @@
 			return $this->query($query);
 		}
 
-		
+
+				
 	}
 	
 	//call methods here to test

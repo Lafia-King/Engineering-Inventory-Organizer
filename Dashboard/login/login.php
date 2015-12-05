@@ -34,7 +34,7 @@
 		$rows = mysql_fetch_assoc($rows);
 		if ($rows['num'] == 1) {
 				$_SESSION['login_user']=$username; // Initializing Session
-				header("location: home.php"); // Redirecting To Other Page
+				header("location: ../index.php"); // Redirecting To Other Page
 		} else {
 			$error = ":( Username or Password is invalid";
 		}

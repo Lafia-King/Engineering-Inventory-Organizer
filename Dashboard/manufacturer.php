@@ -59,13 +59,7 @@
     }
     echo ("</table>");
 
-    if (isset($_REQUEST['name'])) {
-        $req = $_REQUESt['name'];
-        if ($req =='add'){}
-        elseif (condition) {
-                # code...
-            }
-    }
+  
     include("footer.html");
     ?> 
 

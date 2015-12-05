@@ -1,6 +1,7 @@
 <html>
     <?php
     include("header.html");
+    
     echo("<div><h1 style='color:#5f6468;'><b>DASHBOARD</b></h1>"
     . "<em>the first priority information</em>"
     . "<hr></div>");

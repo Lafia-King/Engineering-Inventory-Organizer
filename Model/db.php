@@ -1,8 +1,9 @@
 
 <?php
 //InventoryDb class
+
 /**
- * @author Kwadwo Busumtwi
+ * 
  * @author Kwadwo Busumtwi <kwadwo.busumtwi@ashesi.edu.gh>
  * date:13/11/2015
  * description: A root class for all inventory db classes. This class communicates with DB
@@ -11,20 +12,36 @@
 
 
 
+/**
+*@method array checkOut()
+*@method array viewBookings()
+*@method removeBooking()
+*@method array listTools
+*@method array listBorrowedEquipment()
+*/
  
 
 $con=mysqli_connect("localhost","root","","inventorydb");
 
-//____Method to check in items that are to be returned_____//
-		function check_in(){
+/**
+*Method to check in items that are to be returned
+*
+*@param checkIn()
+*/
+		function checkIn(){
 	global $con;
 		}
 
 
 
-		//____Method to check out items that have been booked by users_____//
+	/**
+*Method to check in items that are to be checked out by a student or faculty member
+*@param checkOut()
+*
+*@return string Returns a confirmation of the equipment being checked out
+*/
 			
-		function check_out(){
+		function checkOut(){
 		if (isset($_GET['equipment_id'])){
 		global $con;
 		$e_id=$_GET['equipment_id'];
@@ -38,8 +55,6 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		
 		$run_check=mysqli_query($con,$check_borrowed_equipment);
 
-     
-		// $product_brand=$row_pro['product_brand'];
 		
 		if(mysqli_num_rows($run_check)>0){
 		
@@ -63,10 +78,16 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 
 
-		//___Method to remove bookings from the booking table___//
+		/**
+		*Method to remove bookings from the bookings table after the item has been checked out
+		* 
+	    *@param removeBooking()
+	    *
+	    *@return string Returns a confirmation of the booking removal
+		*/
 
 
-		function remove_booking(){
+		function removeBooking(){
 		if (isset($_GET['equipment_id'])){
 		global $con;
 		$e_id=$_GET['equipment_id'];
@@ -111,22 +132,27 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 
 
-//____Book an item_____//
-		function reserve_an_item(){
-			global $con;
+// //____Book an item_____//
+// 		function reserve_an_item(){
+// 			global $con;
 			
-		}
+// 		}
 
 
-//______Alert function_____//
-		function alert_an_item(){
-			global $con;
+// //______Alert function_____//
+// 		function alert_an_item(){
+// 			global $con;
 			
-		}
+// 		}
 
 
-//_______List of items____//
-		function list_tools(){
+    /**
+     *Method to list all equipment in the database
+	 *@param listTools()
+	 *
+	 *@return A list of equipment in a table form 
+		*/
+		function listTools(){
 			global $con;
 
 			$query="select * from equipment";
@@ -146,8 +172,13 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 
 
-		//_______List of items____//
-		function list_borrowed_equipment(){
+		/**
+		*Method to list all equipment that has been borrowed by student or faculty
+	    *@param listBorrowedEquipment() 
+	    *
+	    *@return string Returns a table of the borrowed equipment
+		*/
+		function listBorrowedEquipment(){
 			global $con;
 
 			$query="select equipment.name as e_name,user.name as username, date_borrowed,return_date from borrowed_equipment,equipment,user where equipment.equipment_id =borrowed_equipment.equipment_id and user.user_id = borrowed_equipment.user_id ";
@@ -195,7 +226,7 @@ $con=mysqli_connect("localhost","root","","inventorydb");
         
         echo ("</td>");
         echo ("<td>");
-        echo ("<a style='color:white; text-decoration:none' href='check_out_equipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button></a>");
+        echo ("<a style='color:white; text-decoration:none' href='checkOutEquipment.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Check-out</button></a>");
         echo ("</td>");
         echo ("</tr>");
 
@@ -217,11 +248,14 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 
 
-//__________User books item____//
-//________Method needs to be modified so it takes into perspective login session_________///
-
+     /**
+     *Method to  allow student or faculty to book equipment
+	 *@param bookTool() 
+	 *
+	 *@return string confirmation of item booking 
+		*/
 		
-		function book_tool(){
+		function bookTool(){
 			global $con;
 			if(isset($_GET['tool_id'])){
 		
@@ -259,8 +293,13 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 
 
 
-		//The admin's view of all the bookings that have been made//
-		function view_bookings(){
+		/**
+		*Method to allow the user to view bookings
+	    *@param viewBookings()
+	    *
+	    *@return string returns the table of the bookings that have been made by faculty and students
+		*/
+		function viewBookings(){
 			global $con;
 			$query="select tool_id ,equipment.name as toolname,user.name as username,equipment_id ,manufacturer_id,date_booked from booking,equipment,user where equipment_id=tool_id and user.id=booking.user_id ";
 			$get_bookings= mysqli_query($con,$query);
@@ -278,11 +317,6 @@ $con=mysqli_connect("localhost","root","","inventorydb");
 		}
 
 		}
-
-
-//id of the person ,
-// return date , 
-
 
 
 

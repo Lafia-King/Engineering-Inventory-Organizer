@@ -3,6 +3,10 @@
 <html>
 
     <?php
+    /**
+     * @author Chloe Acheampong updated Judah's code 
+     * @copyright 2015
+     */
     include_once("manufacturer_model.php");
     include("header.html");
     echo("<div><h1 style='color:#5f6468;'><b>Add Manufacturer Details</b></h1>"

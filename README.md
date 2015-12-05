@@ -17,6 +17,8 @@ The funtionalities with the highest priority that this project seeks to achieve 
 
 6. Delete a tool:This functions allows the administrator to remove a tool that no longer exist in the database or is sent out for repairs. There is a button that when pressed, goes into the database to find the id of the item that has been clicked on and removes it from the database.
 
+7. Check out equipment: The User should be able to checkout a equipment for a student who has booked it ahead of time. The booking is removed    from the booking table as a result.
+
 
 By the end of this project, there should be an easier way for the engineering department to keep inventory of lab equipment.
 

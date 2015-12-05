@@ -47,14 +47,14 @@
 
 
 
-    $get_pro = "select tool_id ,equipment.name as toolname,user.name as username,equipment_id ,manufacturer_id,date_booked from booking,equipment,user where equipment_id=tool_id and user.id=$user_id ";
+    $get_pro = "select booking.equipment_id as book_id ,equipment.name as toolname,user.name as username,equipment.equipment_id  as e_id,manufacturer_id,date_booked from booking,equipment,user where equipment.equipment_id=booking.equipment_id  and user.id=$user_id ";
  
     $run_pro = mysql_query($get_pro, $link);
 
 
     //  query and populate
     while ($row_pro = mysql_fetch_array($run_pro)) {
-        $e_id = $row_pro['tool_id'];
+        $e_id = $row_pro['book_id'];
        
         $e_name = $row_pro['toolname'];
         
@@ -62,8 +62,14 @@
 
         $date_booked = date("d/m/Y");
        $return_date="";
- 
         
+
+        //This method will remove the booking from the datbase
+        remove_booking();
+
+
+        // This method checks out the item for the user that has been booked
+        check_out();
 
         echo("<html>
                 <body>
@@ -103,7 +109,7 @@
                         
                         <div class='col-xs-2'>
                             <label for='email'>Date Borrowed</label>
-                            <input type='id' class='form-control' value=$date_booked>
+                            <input type='date' class='form-control' value=$date_booked>
                         </div>
                         
                         <div class='col-xs-2'>
@@ -120,7 +126,7 @@
             ");
     }
 
-    check_out();
+    
 
 
     mysql_close($link);

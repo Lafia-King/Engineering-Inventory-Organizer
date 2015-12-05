@@ -57,7 +57,7 @@
         echo $row["id"];
         echo ("</td>");
         echo ("<td>");
-        echo $row["tool_id"];
+        echo $row["equipment_id"];
         echo ("</td>");
         echo ("<td>");
         echo $row["user_id"];

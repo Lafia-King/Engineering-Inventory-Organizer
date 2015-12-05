@@ -9,44 +9,31 @@
 include_once("viewEquipment.php");
 
 class TestviewEquipment extends PHPUnit_Framework_TestCase
-
 {
-	// public $viewEquipment;
-
-		 public function testCalculate()
-    {
-        $this->assertEquals(2, 1 + 1);
-    }
-
-	// public function setUp(){
-	// 	$this -->$viewEquipment = new viewEquipment();
-
-	// }
-
-	// // //Testing Constructor
-	// public function testviewEquipment()
-	// {
-		
-	// 	$this -> assertEquals(true, $viewEquipment->er_code_prefix=1000);
-	// 	$this -> assertEquals(true, $viewEquipment->link=false);
-	// 	$this -> assertEquals(true, $viewEquipment->result=false);
-		
-	// }
+	public $viewEquipment ;
+	//Testing Constructor
+	public function testviewEquipment()
+	{
+		$viewEquipment = new viewEquipment();
+		// $this -> assertEquals(true, $viewEquipment->er_code_prefix=1000);
+		// $this -> assertEquals(true, $viewEquipment->link=false);
+		// $this -> assertEquals(true, $viewEquipment->result=false);
+		return $viewEquipment;
+	}
 	
-	// //Testing getEquipment()
-	// public function testgetEquipment()
-	// {
-	// 	$this -> assertEquals(true, $viewEquipment->getEquipment());
-		
-	// }
+	//Testing getEquipment
+	public function testgetEquipment($viewEquipment)
+	{
+	 	$this -> assertEquals(false, $viewEquipment->getEquipment());
+		// return $viewEquipment;
+	}
 	
 	//Testing getSingleEquipment($id)
-	// public function testgetSingleEquipment()
-	// {
-	// 	$id = 1;
-	// 	$this -> assertEquals(true, $viewEquipment->getSingleEquipment($id));
-		
-	// }
+	public function testgetSingleEquipment($viewEquipment)
+	{
+		$id = 23;
+		$this -> assertEquals(true, $viewEquipment->getSingleEquipment($id));	
+	}
 	
 }
 

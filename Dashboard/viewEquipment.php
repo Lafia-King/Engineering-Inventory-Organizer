@@ -6,14 +6,19 @@
 	include_once("dbconnection.php");
 	
 	class viewEquipment extends dbconnection{
+		
+		/**
+		 *@method void viewEquipment()
+		 *@method array getEquipment()
+		 *@method array getSingleEquipment($id)
+		 */
+		
+		/**
+		 *@return void Establishes connection with database for other methods
+		 */
 		function viewEquipment(){
 			dbconnection::dbconnection();
 		}
-		
-	/**
-	 *@method array getEquipment()
-	 *@method array getSingleEquipment($id)
-	 */
 		
 		/**
 		 *@return list Returns all equipment from database
@@ -27,7 +32,7 @@
 		function getSingleEquipment($id){
 			return $this->query("select * from equipment where id=$id");
 		}
-		
+		//functions below were extra functionalities which would have been added if there was more time
 		/**
 		 *@return list Returns all borrowed equipment from database
 		 */

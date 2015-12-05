@@ -53,10 +53,10 @@
         echo $row["borrow_status"];
         echo ("</td>");
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'><a style='color:white; text-decoration:none' href='view_equipment.php?id=$id'>Edit</a></button>");
+        echo ("<a style='color:white; text-decoration:none' href='view_equipment.php?id=$id'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</a></button>");
         echo ("</td>");
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'><a style='color:white; text-decoration:none' href = 'displaySingleEquipment.php?id=$id'>View</button>");
+        echo ("<a style='color:white; text-decoration:none' href = 'displaySingleEquipment.php?id=$id'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button></a>");
         echo ("</td>");
         echo ("</tr>");
         $row = $view->fetch();

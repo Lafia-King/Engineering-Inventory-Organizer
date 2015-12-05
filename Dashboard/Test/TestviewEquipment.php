@@ -10,6 +10,7 @@ include_once("viewEquipment.php");
 
 class TestviewEquipment extends PHPUnit_Framework_TestCase
 {
+	
 	//Testing Constructor
 	public function testviewEquipment()
 	{
@@ -20,19 +21,18 @@ class TestviewEquipment extends PHPUnit_Framework_TestCase
 		return $viewEquipment;
 	}
 	
-	//Testing getEquipment()
-	public function testgetEquipment()
+	//Testing getEquipment
+	public function testgetEquipment($viewEquipment)
 	{
-		$this -> assertEquals(true, $viewEquipment->getEquipment());
+	 	$this -> assertEquals(true, $viewEquipment->getEquipment());
 		return $viewEquipment;
 	}
 	
 	//Testing getSingleEquipment($id)
-	public function testgetSingleEquipment()
+	public function testgetSingleEquipment($viewEquipment)
 	{
-		$id = 1;
-		$this -> assertEquals(true, $viewEquipment->getSingleEquipment($id));
-		return $viewEquipment;
+		$id = 23;
+		$this -> assertEquals(true, $viewEquipment->getSingleEquipment($id));	
 	}
 	
 }

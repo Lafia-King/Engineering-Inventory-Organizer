@@ -1,7 +1,9 @@
 <html>
     <?php
-    include("header.html");
-    echo("<div><h1 style='color:#5f6468;'><b>Users</b></h1>"
+    
+    include_once("../header.html");
+    include_once("../dbconnection.php");
+    echo("<div><h1 style='color:#5f6468;'><b>Manufacturers</b></h1>"
 //    . "<em>the first priority information</em>"
     . "<hr></div>");
 
@@ -30,7 +32,7 @@
 
 
     //begin running query for equipment info from inventorydb  for requests table
-    $dataset = mysql_query("select * from user", $link);
+    $dataset = mysql_query("select * from manufacturer", $link);
     if (!$dataset) {
         echo "Error";
         echo mysql_error();
@@ -44,11 +46,11 @@
     echo ("<table class='table table-condensed table-hover'>");
     echo("<tr><th>ID</th> 
  		  <th>Name</th> 
- 		  <th>Username</th>
-                  <th>user Id</th>
                   <th>Email</th>
-                  <th>User Type</th> 
-                  <th><button type='submit' class='btn btn-success btn-sm' style='width:100%;'>Add</button></th>
+ 		  <th>Phone Number</th> 
+                  <th>Website</th>
+                  <th>Country</th>
+                  <th><button type='button' class='btn btn-success btn-sm' style='width:100%;'>Add</button></th>
                   </tr> ");
 
     $row = mysql_fetch_assoc($dataset);
@@ -57,19 +59,19 @@
         echo $row["id"];
         echo ("</td>");
         echo ("<td>");
-        echo $row["username"];
-        echo ("</td>");
-        echo ("<td>");
-        echo $row["user_id"];
-        echo ("</td>");
-        echo ("<td>");
-        echo $row["user_id"];
+        echo $row["name"];
         echo ("</td>");
         echo ("<td>");
         echo $row["email"];
         echo ("</td>");
-       echo ("<td>");
-        echo $row["user_type"];
+        echo ("<td>");
+        echo $row["phone_number"];
+        echo ("</td>");
+        echo ("<td>");
+        echo $row["website"];
+        echo ("</td>");
+        echo ("<td>");
+        echo $row["country"];
         echo ("</td>");
         
 //        echo ("<td>");
@@ -81,14 +83,11 @@
          echo ("<td>");
         echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</button>");
         echo ("</td>");
-        echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Delete</button>");
-        echo ("</td>");
         echo ("</tr>");
         $row = mysql_fetch_assoc($dataset);
     }
     echo ("</table>");
 
     mysql_close($link);
-    include("footer.html");
+    include("../footer.html");
     ?> 

@@ -46,9 +46,8 @@
 		*@return  true or false - successful or unsuccessful
 		*/
 		function addManufacturer($name, $email, $phone_number, $website, $country){
-			$query ="insert into manufacturer set name='$name',
-			email=$email, phone_number=$phone_number, website=$website, 
-			country=$country";
+			$query ="INSERT INTO manufacturer (name, email, phone_number, 
+				website, country) VALUES ('$name', '$email', '$phone_number', '$website', '$country');";
 			return $this->query($query);
 			
 		}

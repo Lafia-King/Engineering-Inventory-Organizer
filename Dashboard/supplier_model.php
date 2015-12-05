@@ -26,6 +26,33 @@
 		}
 
 
+		/**
+		*query to get manufacture by id
+		*@return  a Supplier in the database
+		*/
+		function getSupplierById($mid){
+			$query="select * from Supplier where id=$mid";
+			return $this->query($query);
+		}
+
+		/**
+		*query to add a Supplier to Supplier database
+		* 
+		*@param string $name
+		*@param string $email
+		*@param string $phone_number
+		*@param string $website
+		*@param string $country
+		*@return  true or false - successful or unsuccessful
+		*/
+		function addSupplier($name, $email, $phone_number){
+			$query ="INSERT INTO Supplier (name,  phone_number, email) VALUES ('$name', '$phone_number',
+				'$email');";
+			return $this->query($query);
+			
+		}
+		
+		
 		
 	}
 

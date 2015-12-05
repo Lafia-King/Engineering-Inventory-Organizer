@@ -1,22 +1,28 @@
-	function edit_tool_details(){
+	function edit_equipment_details(){
 	
-		$tool_id=$_REQUEST['tool_id'];
+		$equipment_id=$_REQUEST['equipment_id'];
+		$product_id=$_REQUEST['product_id'];
+		$category_id=$_REQUEST['category_id'];
+		$storage_location=$_REQUEST['storage_location'];
 		$barcode=$_REQUEST['barcode'];
-		$name=$_REQUEST['tool_name'];
-		$manufacturer=$_REQUEST['manufacturer-name'];
-		$supplier=$_REQUEST['supplier_name'];
+		$name=$_REQUEST['name'];
+		$manufacturer_id=$_REQUEST['manufacturer_id'];
+		$supplier_id=$_REQUEST['supplier_id'];
 		$price=$_REQUEST['price'];
-		$date_purchased= date('Y-m-d', strtotime($_REQUEST['date-bought']));
+		$date_created= date('Y-m-d', strtotime($_REQUEST['date_created']));
 		$repair_date= date('Y-m-d', strtotime($_REQUEST['repair-date']));
-		$condition=$_REQUEST['condition'];
+		$current_condition=$_REQUEST['current_condition'];
+		$label=$_REQUEST['label'];
+		$asset_type=$_REQUEST['asset_type'];
+		$borrow_status=$_REQUEST['borrow_status'];
 		$location=$_REQUEST['location'];
 		$department=$_REQUEST['department'];
 
 
 		$querry= "UPDATE equipment 
-		SET(`tool_id = $tool_id`, `barcode = $barcode`, `tool_name` = $tool_name, `manufacturer_name = $manufacturer_name', `supplier_name = $supplier_name`, `price = $price`, `date_bought`, `last_repair_date`,
-			 `condition`, `location`, `department`
-			WHERE tool_id=$tool_id);
+		SET(`equipment_id = $equipment_id`, 'product_id = $product_id','category_id = $category_id', 'storage_location = $storage_location',`barcode = $barcode`, `name` = $name, `manufacturer_id = $manufacturer_id', `supplier_id = $supplier_id`, `price = $price`, `date_created =$date_created`, `repair_date = $repair_date`,
+			 `current_condition = $current_condition`,'asset_type = $asset_type','borrow_status = $borrow_status', `location =$location`, `department`
+			WHERE equipment_id=$equipment_id);
 			
 			return $this->query($querry);
 		

@@ -10,7 +10,7 @@
 		*@return if successful true else false
 		*/
 		
-		function get_all_users(){
+		function getAllUsers(){
 			$query="select * from user";
 			return $this->query($query);
 		}
@@ -24,10 +24,20 @@
 			return $this->query($query);
 		}
 		
-		function add_user($name, $email, $username,$password){
+		function getUserById($u_id){
+			$query="SELECT * from user where id = $u_id";
+			return $this->query($query);
+		}
+		
+		function updateUser($u_id, $name,$username, $password,$email, $user_type){
+			$query ="UPDATE User SET  name='$name', username='$username',password='$password',email='$email',user_type='$user_type'
+			 WHERE id=$u_id";
+			return $this->query($query);
+		}
+		
+		function addUser($name, $email, $username,$password, $user_type){
 			//write the SQL query and call $this->query()
-			$query ="insert into user set name='$name',
-			email=$email, username=$username, password =$password";
+			$query ="INSERT INTO `user`( `name`, `email`, `username`, `password`, `user_type`) VALUES ('$name','$email','$username','$password','$user_type')";
 			return $this->query($query);
 		}
 		

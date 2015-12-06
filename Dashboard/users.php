@@ -1,94 +1,56 @@
 <html>
+<body>
     <?php
-    include("header.html");
+    
+    include_once("header.html");
+    include_once("user.php");
     echo("<div><h1 style='color:#5f6468;'><b>Users</b></h1>"
-//    . "<em>the first priority information</em>"
     . "<hr></div>");
 
-//check connection to your database 
-    $servername = "localhost"; //name of the server 
-    $database = "inventorydb"; //this database has to exist.  
-    $username = "root";  //the main admin user of mysql 
-    $password = "";   //use root password of mysql 
+ 
 
+    $obj = new User();
 
-    $link = mysql_connect($servername, $username, $password, $database);
-//if result is false, the connection did not open 
-    if (!$link) {
-        echo "Failed to connect to mysql.";
-        //display error message from mysql 
-        echo mysql_error();
-        exit();  //end script 
-    }
-//select the database to work with using the open connection  
-    if (!mysql_select_db($database, $link)) {
-        echo "Failed to select database.";
-        //display error message from mysql 
-        echo mysql_error();
-        exit();
+    $obj->getAllUsers();
+    //begin running query for user info from inventorydb  for user table
+    $row = $obj->fetch();
+    if (!$row) {
+        echo "No users available";
     }
 
-
-    //begin running query for equipment info from inventorydb  for requests table
-    $dataset = mysql_query("select * from user", $link);
-    if (!$dataset) {
-        echo "Error";
-        echo mysql_error();
-        exit();
-    }
-
-    echo("<div>
-        <h2 class='sub-header'>Requests</h2>
-        </div>");
+   
 
     echo ("<table class='table table-condensed table-hover'>");
-    echo("<tr><th>ID</th> 
- 		  <th>Name</th> 
- 		  <th>Username</th>
-                  <th>user Id</th>
+    echo("<tr> 
+          <th>Name</th> 
+				  <th>User Name</th>
                   <th>Email</th>
-                  <th>User Type</th> 
-                  <th><button type='submit' class='btn btn-success btn-sm' style='width:100%;'>Add</button></th>
+                  <th><a style='color:white; text-decoration:none' href='add_users.php'><button 
+                  type='button' class='btn btn-success btn-sm' style='width:100%;'>Add</button></a></th>
                   </tr> ");
 
-    $row = mysql_fetch_assoc($dataset);
+    // $row = $dataset;
     while ($row) {
         echo ("<tr><td>");
-        echo $row["id"];
+        echo $row["name"];
         echo ("</td>");
-        echo ("<td>");
+		echo ("<td>");
         echo $row["username"];
         echo ("</td>");
         echo ("<td>");
-        echo $row["user_id"];
-        echo ("</td>");
-        echo ("<td>");
-        echo $row["user_id"];
-        echo ("</td>");
-        echo ("<td>");
         echo $row["email"];
-        echo ("</td>");
-       echo ("<td>");
-        echo $row["user_type"];
-        echo ("</td>");
-        
-//        echo ("<td>");
-//        echo $row["date_created"];
-//        echo ("</td>");
-//        echo ("<td>");
-//        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>View</button>");
-//        echo ("</td>");
-         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</button>");
-        echo ("</td>");
+        echo ("</td>");     
         echo ("<td>");
-        echo ("<button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Delete</button>");
+        echo ("<a style='color:white; text-decoration:none' href='edit_users.php?id={$row['id']}'><button type='button' class='btn btn-primary btn-sm' style='width:100%;'>Edit</button></a>");
         echo ("</td>");
-        echo ("</tr>");
-        $row = mysql_fetch_assoc($dataset);
+        $row = $obj->fetch();
     }
     echo ("</table>");
 
-    mysql_close($link);
+
     include("footer.html");
     ?> 
+
+</body>
+
+    </html>

@@ -1,3 +1,16 @@
+<!--
+@author Judah Awentemi Lafia-King
+@author Judah Awentemi Lafia-King<lafia.king@gmail.com>
+-->
+
+<!--
+@param No parameters
+-->
+
+<!--
+@return Returns query
+-->
+
 <html>
     <?php
     include("header.html");

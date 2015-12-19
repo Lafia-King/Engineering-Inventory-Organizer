@@ -69,7 +69,7 @@ class dbconnection {
             return true;
         }
         //try to connect to db
-        $this->link = mysql_connect(DB_HOST , DB_USER, DB_PWORD);
+        $this->link = mysqli_connect(DB_HOST , DB_USER, DB_PWORD,DB_NAME);
 		
         if (!$this->link) {
             //if connection fail log error and set $str_error

@@ -8,16 +8,14 @@ include_once("..\Model\db.php");
 
 <html>
 
-	<head></head>
+	<head>Borrowed Equipment</head>
+	<br>
 
 
-	<title>Checkout Page</title>
-
-	
+	<title>Borrowed Equipment</title>
 
 
-<!-- If the admin wants to checkout an item for a user he comes to this page.
-On this page he sees the list of all bookings-->
+
 	<body>
 		
 
@@ -25,7 +23,7 @@ On this page he sees the list of all bookings-->
 
 
 		<?php
-		view_bookings();
+		list_borrowed_equipment();
 
 		?>
 
